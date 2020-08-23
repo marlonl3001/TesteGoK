@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="showError"
+            type="Boolean" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProduct"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/margin8"
+            android:padding="@dimen/margin24"
+            app:cardCornerRadius="@dimen/margin24">
+
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="@string/image_description"
+                android:padding="@dimen/margin32"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_image_error"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin16"
+                android:layout_marginEnd="@dimen/margin16"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/image_error"
+                android:textAlignment="center"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/text12"
+                android:visibility="@{showError ? View.VISIBLE : View.GONE}"/>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

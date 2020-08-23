@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Teste GoK</string>
+    <string name="image_description">Imagem</string>
+
+    <string name="hello_user">Olá, Marlon</string>
+    <string name="products">Produtos</string>
+    <string name="digio">digio</string>
+    <string name="cash">Cash</string>
+    <string name="image_error">Erro ao carregar imagem.</string>
+</resources>

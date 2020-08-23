@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".flow.main.MainActivity">
+
+    <data>
+        <variable
+            name="showLoading"
+            type="Boolean" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="@dimen/margin16"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/ic_digio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/txtHelloUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:text="@string/hello_user"
+                android:textSize="@dimen/text18"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+                app:layout_constraintStart_toEndOf="@id/imgProfile"
+                app:layout_constraintTop_toTopOf="@id/imgProfile"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pagerSpots"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dashboard_spots_height"
+                android:layout_marginTop="@dimen/margin40"
+                android:animateLayoutChanges="true"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingEnd="@dimen/margin16"
+                android:paddingStart="@dimen/margin16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtHelloUser"/>
+
+            <TextView
+                android:id="@+id/txtDigio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin32"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text20"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/pagerSpots"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/imgProfile"
+                tools:text="digio Cash"/>
+            
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="@dimen/margin16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDigio">
+
+                <ImageView
+                    android:id="@+id/imgCash"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_description"
+                    android:scaleType="fitXY"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/txtProducts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8"
+                android:layout_marginEnd="@dimen/margin16"
+                android:text="@string/products"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text20"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/recyclerProducts"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/imgProfile"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerProducts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin16"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/margin16"
+                android:paddingEnd="@dimen/margin16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/layoutProgress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#88000000"
+                android:visibility="@{showLoading ? View.VISIBLE : View.GONE}"
+                tools:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.WhiteAccent"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
